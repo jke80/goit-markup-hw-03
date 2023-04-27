@@ -21,20 +21,20 @@ body {
   padding-left: 0;
   list-style-type: none;
 }
-/* header, nav, auth */
-.page-header {
-  height: 80px;
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }
-.page-header > .container {
-  height: inherit;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.nav {
-  display: flex;
-  gap: 95px;
-  align-items: center;
+.no-gap {
+  display: block;
 }
 .container {
   width: 1200px;
@@ -43,6 +43,21 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* header, nav, auth */
+.page-header {
+  border-bottom: 1px solid #ececec;
+}
+.page-header > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-nav {
+  display: flex;
+  gap: 95px;
+  align-items: center;
+}
 .logo {
   font-family: 'Raleway';
   font-weight: 700;
@@ -50,6 +65,11 @@ body {
   line-height: 1.2;
   text-decoration: none;
   color: var(--site-accent-color);
+}
+.page-nav.logo {
+  display: inline-block;
+  padding-top: 24px;
+  padding-bottom: 25px;
 }
 .logo-black {
   color: var(--logo-color-black);
@@ -63,6 +83,11 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration-line: none;
+}
+.page-header .link {
+  display: inline-block;
+  padding-top: 32px;
+  padding-bottom: 32px;
 }
 .site-nav {
   display: flex;
@@ -91,27 +116,24 @@ body {
 .tel:hover {
   color: var(--site-accent-color);
 }
+
 /* hero */
 .hero {
   background-color: var(--hero-backgraund-color);
-  height: 600px;
   padding-top: 200px;
+  padding-bottom: 200px;
 }
 .hero > .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
 .hero-title {
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
-  text-align: center;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--hero-title-color);
-  margin-top: 0px;
+  margin-top: 0;
   margin-bottom: 30px;
 }
 .hero-button {
@@ -133,19 +155,8 @@ body {
 .hero-button:focus {
   background: var(--bg-active-button);
 }
+
 /* features */
-.visually-hidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-}
 .features {
   padding-top: 94px;
 }
@@ -161,13 +172,14 @@ body {
   line-height: 1.14;
   text-transform: uppercase;
   color: var(--title-font-color);
-  margin: 0px 0px 10px 0px;
+  margin-bottom: 10px;
 }
 .features-text {
   font-size: 14px;
   line-height: 1.71;
   margin: 0;
 }
+
 /* Box */
 .box {
   padding-top: 94px;
@@ -180,9 +192,7 @@ body {
 .box .list > li {
   flex-basis: calc((100% - 3 * 30px) / 4);
 }
-.no-gap {
-  display: block;
-}
+
 /* team */
 .team {
   background-color: var(--team-backgraund-color);
@@ -204,7 +214,8 @@ body {
 .team-card {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 0px 0px 4px 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   background: var(--backgraund-color);
   padding-bottom: 30px;
   flex-basis: calc((100% - 3 * 30px) / 4);
@@ -215,7 +226,8 @@ body {
   line-height: 1.2;
   text-align: center;
   color: var(--title-font-color);
-  margin: 30px 0px 10px 0px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 .team-text {
   text-align: center;
@@ -225,7 +237,6 @@ body {
 
 /* portfolio */
 .page-portfolio {
-  border-top: 1px solid #ececec;
   padding-top: 94px;
   padding-bottom: 94px;
 }
@@ -263,12 +274,14 @@ body {
   flex-wrap: wrap;
 }
 .works-item {
-  border: 1px solid #eeeeee;
   flex-basis: calc((100% - 2 * 30px) / 3);
   overflow: hidden;
 }
 .works-item > div {
   padding: 20px 24px;
+  border-right: 1px solid #eeeeee;
+  border-left: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
 }
 .works-title {
   font-weight: 700;
@@ -297,8 +310,8 @@ body {
 .footer address li {
   margin-bottom: 12px;
 }
-.footer li:last-child {
-  margin-bottom: 0px;
+.footer address li:last-child {
+  margin-bottom: 0;
 }
 .adress-link {
   color: var(--hero-title-color);
